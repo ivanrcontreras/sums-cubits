@@ -65,14 +65,14 @@ dotnet dev-certs https --export-path "./https/certificate.pem" --no-password --f
 ### Frontend Framework and Libraries
 - Vue.js 3.5.16 - Progressive JavaScript framework
 - TypeScript 5.8.3 - Static typing for JavaScript
-- Pinia 3.0.3 - State management
-- Vue Router 4.5.1 - Client-side routing
-- PrimeVue 4.3.5 - UI component library
-- PrimeFlex 4.0.0 - CSS utility library
+- Pinia 3.0.4 - State management
+- Vue Router 4.6.3 - Client-side routing
+- PrimeVue 4.4.1 - UI component library
+- TalwindCSS 4.1.17 - CSS utility library
 - PrimeIcons 7.0.0 - Icon library
-- Vue I18n 11.1.5 - Internationalization
+- Vue I18n 11.2.8 - Internationalization
 - Auth0 Vue SDK 2.4.0 - Authentication
-- VueUse 13.3.0 - Composition utilities
+- VueUse 14.0.0 - Composition utilities
 
 ### Development Tools
 - Vite 6.3.5 - Build tool and dev server

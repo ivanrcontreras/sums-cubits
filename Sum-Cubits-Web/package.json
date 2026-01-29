@@ -22,7 +22,6 @@
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "pinia": "^3.0.4",
-    "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.4.1",
     "tailwindcss": "^4.1.17",
