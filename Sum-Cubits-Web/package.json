@@ -10,12 +10,7 @@
   },
   "dependencies": {
     "@auth0/auth0-vue": "^2.4.0",
-    "@fullcalendar/core": "^6.1.19",
-    "@fullcalendar/daygrid": "^6.1.19",
-    "@fullcalendar/interaction": "^6.1.19",
-    "@fullcalendar/vue3": "^6.1.19",
     "@intlify/unplugin-vue-i18n": "^11.0.1",
-    "@kodeglot/vue-calendar": "^1.5.0",
     "@primeuix/themes": "^1.2.5",
     "@tailwindcss/vite": "^4.1.17",
     "@vueuse/core": "^14.0.0",

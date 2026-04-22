@@ -1,7 +1,94 @@
 {
     "shell":{
         "titles":{
-            "home":"Inicio"
+            "home":"Inicio",
+            "lounge":"Salones",
+            "turns":"Turnos",
+            "reservations":"Reservas"
+        }
+    },
+
+    "myreservation":{
+        "titles":{
+            "myreservations": "Mis Reservas",
+            "turns": "Turnos",
+            "room": "Salón"
+        },
+        "buttons":{
+            "reserveroom": "Reservar Salón",
+            "createreserve": "Crear Reserva",
+            "save": "Guardar",
+            "cancel": "Cancelar"
+        },
+        "select":{
+            "selectedreserve": "Seleccionar Reserva",
+            "selectedroom": "Seleccionar Salón",
+            "availableshifts": "Turnos Disponibles",
+            "shiftsnotavailable": "Turnos no disponibles",
+            "nothavereservation": "Aún no tienes reservas solicitadas"
+        }
+    },
+    "reservationslist":{
+        "titles":{
+
+        },
+        "select":{
+            "dateselect": "Seleccionar Fecha",
+            "selecreserve": "Seleccionar Reserva"
+        },
+        "columns":{
+            "reserve": "Reserva",
+            "user": "Usuario",
+            "contact": "Contacto",
+            "turn": "Turno",
+            "hourstart": "Hora inicio",
+            "hourend": "Hora fin"
+        }
+    },
+    "room":{
+        "titles":{
+
+        },
+        "buttons":{
+            "create": "Crear",
+            "update": "Modificar",
+            "delete": "Borrar",
+            "recover": "Recuperar",
+            "save": "Guardar",
+            "cancel": "Cancelar"
+        },
+        "columns":{
+            "room": "Salón",
+            "active": "Activo",
+            "inactive": "Inactivo"
+        },
+        "inputtext":{
+            "roomname": "Nombre Salón"
+        }
+    },
+    "turns":{
+        "titles":{
+
+        },
+        "buttons":{
+            "create": "Crear",
+            "update": "Modificar",
+            "delete": "Borrar",
+            "recover": "Recuperar",
+            "save": "Guardar",
+            "cancel": "Cancelar"
+        },
+        "columns":{
+            "turn": "Turno",
+            "hourstart": "Hora inicio",
+            "hourend": "Hora fin",
+            "active": "Activo",
+            "inactive":"Inactivo"
+        },
+        "inputtext":{
+            "turn": "Turno",
+            "hourstart": "Hora inicio",
+            "hourend": "Hora fin"
         }
     }
 }

@@ -5,6 +5,7 @@ import i18n from '@/resources/i18n'
 import router from '@/router'
 import store from '@/store'
 import auth from '@/auth'
+import Tooltip from 'primevue/tooltip'
 
 
 
@@ -19,4 +20,5 @@ createApp(App)
   .use(i18n)
   .use(PrimeVue, primeVueCustomOptions)
   .use(ToastService)
+  .directive('tooltip', Tooltip)
   .mount('#app')

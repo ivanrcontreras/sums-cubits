@@ -8,21 +8,20 @@ import type { GetRoleResponse } from '@/features/roles/interfaces/GetRoleRespons
 
 import type { PermissionDto } from '@/features/permissions/models/PemissionDto'
 import type { RoleDto } from '@/features/roles/models/RoleDto'
-import type { ViewDto } from '@/features/views/models/ViewDto'
+import type { VistaDto } from '@/features/views/models/VistaDto'
 import type { PaginatedRoleListDto } from '@/features/roles/models/PaginatedRoleListDto'
 
 
 export default class RoleService {
   API_URL = 'roles'
 
-  async getList(request?: GetRoleListRequest): Promise<PaginatedRoleListDto | undefined> {
-    const { data } = await useHttp(this.API_URL, request).get().json<GetRoleListResponse>()
-      if (!data.value) return undefined;
-    return {
-    roleList: data.value?.rolesList,
-    totalCount: data.value?.totalCount
-  }
-  }
+  // async getList(request?: GetRoleListRequest): Promise<PaginatedRoleListDto | undefined> {
+  //   const { data } = await useHttp(this.API_URL, request).get().json<GetRoleListResponse>()
+  //     if (!data.value) return undefined;
+  //   return {
+  //   roleList: data.value?.rolesList
+  // }
+  // }
 
   async get(roleId: number): Promise<RoleDto | undefined> {
     const url = `${this.API_URL}/${roleId}`
@@ -30,10 +29,10 @@ export default class RoleService {
     return data.value?.role
   }
 
-  async getViewList(roleId: number): Promise<ViewDto[] | undefined> {
+  async getViewList(roleId: number): Promise<VistaDto[] | undefined> {
     const url = `${this.API_URL}/${roleId}/views`
     const { data } = await useHttp(url).get().json<GetViewListResponse>()
-    return data.value?.viewDtos
+    return data.value?.vistaDtos
   }
 
   async getPermissionList(roleId: number): Promise<PermissionDto[] | undefined> {

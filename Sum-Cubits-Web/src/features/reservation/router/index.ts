@@ -1,26 +1,32 @@
 import { type RouteRecordRaw, RouterView } from "vue-router";
 import { usePermissionGuard } from "@/composables/usePermissionGuard";
 
+const ReservationList = () => import('@/features/reservation/pages/Reservation-List.vue');
+
 export const reservationRouter: RouteRecordRaw = {
-    path: 'reservation',
+    path: 'reservations',
     component: RouterView,
-    meta: { permissions: 'reservation' },
+    meta: { permissions: 'reservations' },
     beforeEnter: usePermissionGuard,
     children: [
-        
+        {
+            path: '',
+            name: 'reservation-list',
+            component: ReservationList
+        }
     ]
 }
 
-const ReservationList = () => import('@/features/reservation/pages/Reservation-List.vue');
+const MyReservation = () => import('@/features/reservation/pages/MyReservation.vue');
 
 export const myReservationRouter: RouteRecordRaw = {
-path: 'my-reservation',
+path: 'myreservation',
 component: RouterView,
 children: [
     {
         path: '',
-        name: 'reservation-list',
-        component: ReservationList
+        name: 'myreservation',
+        component: MyReservation
     }
 ]
 }

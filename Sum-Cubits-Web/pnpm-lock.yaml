@@ -11,24 +11,9 @@ importers:
       '@auth0/auth0-vue':
         specifier: ^2.4.0
         version: 2.4.0(typescript@5.9.3)(vue-router@4.6.3(vue@3.5.24(typescript@5.9.3)))
-      '@fullcalendar/core':
-        specifier: ^6.1.19
-        version: 6.1.19
-      '@fullcalendar/daygrid':
-        specifier: ^6.1.19
-        version: 6.1.19(@fullcalendar/core@6.1.19)
-      '@fullcalendar/interaction':
-        specifier: ^6.1.19
-        version: 6.1.19(@fullcalendar/core@6.1.19)
-      '@fullcalendar/vue3':
-        specifier: ^6.1.19
-        version: 6.1.19(@fullcalendar/core@6.1.19)(vue@3.5.24(typescript@5.9.3))
       '@intlify/unplugin-vue-i18n':
         specifier: ^11.0.1
         version: 11.0.1(@vue/compiler-dom@3.5.24)(eslint@9.39.1(jiti@2.6.1))(rollup@4.53.2)(typescript@5.9.3)(vue@3.5.24(typescript@5.9.3))
-      '@kodeglot/vue-calendar':
-        specifier: ^1.5.0
-        version: 1.5.0(pinia@3.0.4(typescript@5.9.3)(vue@3.5.24(typescript@5.9.3)))(tailwindcss@4.1.17)(vite@7.2.2(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
       '@primeuix/themes':
         specifier: ^1.2.5
         version: 1.2.5

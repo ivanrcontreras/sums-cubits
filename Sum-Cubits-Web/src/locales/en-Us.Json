@@ -1,7 +1,94 @@
 {
     "shell":{
         "titles":{
-            "home":"Home"
+            "home":"Home",
+            "lounge":"Lounge",
+            "turns":"Shifts",
+            "reservations":"Reservations"
+        }
+    },
+
+    "myreservation":{
+        "titles":{
+            "myreservations": "My Reserve",
+            "turns": "Shifts",
+            "room": "Lounge"
+        },
+        "buttons":{
+            "reserveroom": "Reserve Lounge",
+            "createreserve": "Create Reservation",
+            "save": "Saved",
+            "cancel": "Cancel"
+        },
+        "select":{
+            "selectedreserve": "Select Reserve",
+            "selectedroom": "Select Room",
+            "availableshifts": "Available Shifts",
+            "shiftsnotavailable": "Shift not available",
+            "nothavereservation": "You still do not have reservations requested"
+        }
+    },
+    "reservationslist":{
+        "titles":{
+
+        },
+        "select":{
+            "dateselect": "Select Date",
+            "selecreserve": "Select Reserve"
+        },
+        "columns":{
+            "reserve": "Reserve",
+            "user": "User",
+            "contact": "Contact",
+            "turn": "Shifts",
+            "hourstart": "Hour start",
+            "hourend": "Hour end"
+        }
+    },
+    "room":{
+        "titles":{
+
+        },
+        "buttons":{
+            "create": "Create",
+            "update": "Update",
+            "delete": "Delete",
+            "recover": "Recover",
+            "save": "Save",
+            "cancel": "Cancel"
+        },
+        "columns":{
+            "room": "Lounge",
+            "active": "Active",
+            "inactive": "Inactive"
+        },
+        "inputtext":{
+            "roomname": "Name Lounge"
+        }
+    },
+    "turns":{
+        "titles":{
+
+        },
+        "buttons":{
+            "create": "Create",
+            "update": "Update",
+            "delete": "Delete",
+            "recover": "Recover",
+            "save": "Save",
+            "cancel": "Cancel"
+        },
+        "columns":{
+            "turn": "Shifts",
+            "hourstart": "Hour start",
+            "hourend": "Hour end",
+            "active": "Active",
+            "inactive": "Inactive"
+        },
+        "inputtext":{
+            "turn": "Shifts",
+            "hourstart": "Hour start",
+            "hourend": "Hour end"
         }
     }
 }
