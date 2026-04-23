@@ -12,7 +12,7 @@
                     builder.AllowAnyMethod();
                     builder.WithOrigins(
                         "https://localhost:4001", //Dev
-                        "https://sum-cubits-qa.vulktech.com", //QA
+                        "https://sums-cubits-8ajs.vercel.app", //QA
                         "https://sum-cubits.vulktech.com" //Prod
                         );
                 });
