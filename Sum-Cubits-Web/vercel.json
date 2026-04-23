@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd Sum-Cubits-Web && pnpm run build",
+  "outputDirectory": "Sum-Cubits-Web/dist",
+  "installCommand": "cd Sum-Cubits-Web && pnpm install"
+}
