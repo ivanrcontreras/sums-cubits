@@ -5,7 +5,7 @@ import type { I18n } from 'vue-i18n'
 const i18n: I18n = createI18n({
   messages,
   legacy: false,
-  fallbackLocale: 'en-AR',
+  fallbackLocale: 'default',
   locale: navigator.language
 })
 
