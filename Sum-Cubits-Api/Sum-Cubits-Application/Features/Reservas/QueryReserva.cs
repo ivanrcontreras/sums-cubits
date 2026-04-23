@@ -45,7 +45,7 @@ namespace Sum_Cubits_Application.Features.Reservas
                 .Set<Reserva>()
                 .Where(r => r.FechaReserva == fechaReserva
                 && r.SalonId == salonId
-                && r.EstadoId == 5
+                && r.Estado.NombreEstado == "Confirmada"
                 && turnosIds.Contains(r.TurnoId ?? 0))
                 .Select(r => r.TurnoId ?? 0)
                 .ToListAsync();
@@ -57,7 +57,7 @@ namespace Sum_Cubits_Application.Features.Reservas
                 .Set<Reserva>()
                 .Where(r => r.FechaReserva == fechaReserva
                 && r.SalonId == salonId
-                && r.EstadoId == 5)
+                && r.Estado.NombreEstado == "Confirmada")
                 .Select(r => r.TurnoId ?? 0)
                 .Distinct()
                 .ToListAsync();
