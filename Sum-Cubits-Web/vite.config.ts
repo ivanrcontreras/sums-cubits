@@ -29,7 +29,7 @@ export default defineConfig({
   //   }
   // },
   build:{
-    outDir: '../Sum-Cubits-Publish/web',
+    outDir: 'dist',
     emptyOutDir: true,
   }
 })
