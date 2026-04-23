@@ -1,5 +1,8 @@
 ﻿
 using LinqKit;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using Npgsql;
 using Sum_Cubits_Application.Application.Exceptions;
 using Sum_Cubits_Application.Features.Roles;
 using Sum_Cubits_Application.Features.Usuarios;
@@ -12,28 +15,55 @@ namespace Sum_Cubits_Application.Infrastructure.Services
         private readonly QueryUsuario _queryUser;
         private readonly QueryRol _queryRole;
 
+        private static readonly Dictionary<string, SemaphoreSlim> _userLocks = new();
+        private static readonly object _lockDictLock = new();
         public UserService(QueryCacheService queryCacheService,QueryUsuario queryUsuarios, QueryRol queryRoles)
         {
             _queryCacheService = queryCacheService;
             _queryUser = queryUsuarios;
             _queryRole = queryRoles;
         }
+
+        private SemaphoreSlim GetUserLock(string userEmail)
+        {
+            lock (_lockDictLock)
+            {
+                if (!_userLocks.ContainsKey(userEmail))
+                {
+                    _userLocks[userEmail] = new SemaphoreSlim(1, 1);
+                }
+                return _userLocks[userEmail];
+            }
+        }
         public async Task<int?> GetRoleId(string userEmail, string? userName)
         {
+
             var user = GetUserFromCache(userEmail);
             if (user != null) return user.RolId;
 
-            user = await GetUserFromDatabase(userEmail);
-            if (user != null)
+            var semaphore = GetUserLock(userEmail);
+            await semaphore.WaitAsync();
+            try
             {
+                user = GetUserFromCache(userEmail);
+                if (user != null) return user.RolId;
+
+                user = await GetUserFromDatabase(userEmail);
+
+                if (user != null)
+                {
+                    AddUserToCache(user);
+                    return user.RolId;
+                }
+                user = await CreateUser(userEmail, userName);
                 AddUserToCache(user);
                 return user.RolId;
-            }
 
-            // Usuario nuevo → crear con nombre y rol por defecto
-            user = await CreateUser(userEmail, userName);
-            AddUserToCache(user);
-            return user.RolId;
+            }
+            finally
+            {
+                semaphore.Release();
+            }
         }
 
         public async Task<int> GetUserId(string userEmail)
@@ -51,7 +81,7 @@ namespace Sum_Cubits_Application.Infrastructure.Services
                 return user.UsuarioId;
             }
 
-            return user.UsuarioId;
+            return 0;
         }
 
         private Usuario? GetUserFromCache(string userEmail)
@@ -81,7 +111,6 @@ namespace Sum_Cubits_Application.Infrastructure.Services
                 RolId = role.RolId,
                 Activo = true
             };
-
             await _queryUser.Create(entity);
 
             entity.Role = null;

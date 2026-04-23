@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Sum_Cubits_Application.Features.Roles;
 using Sum_Cubits_Application.Features.Usuarios;
 using Sum_Cubits_Application.Infrastructure.Services;
 using System.Security.Claims;
@@ -11,8 +10,7 @@ namespace Sum_Cubits_Api.Endpoints.Users
         public record Response(int RoleId);
         public static async Task<IResult> Handle(
             HttpContext httpContext,
-            [FromServices] UserService userService,
-            [FromServices] QueryUsuario queryUsuario)
+            [FromServices] UserService userService)
         {
             var userEmail = httpContext.User.FindFirstValue("email")
                          ?? httpContext.User.FindFirstValue(ClaimTypes.Email);
@@ -20,20 +18,12 @@ namespace Sum_Cubits_Api.Endpoints.Users
             if (string.IsNullOrEmpty(userEmail))
                 return Results.Unauthorized();
 
-            var userId = await userService.GetUserId(userEmail);
+            var roleId = await userService.GetRoleId(userEmail, httpContext.User.FindFirstValue("name"));
 
-            if (userId == null)
-            {
-                return Results.NotFound("Usuario no encontrado");
-            }
-
-            var roleId = await queryUsuario.GetRolId(userId);
-
-
-            if (roleId == 0)
+            if (!roleId.HasValue)
                 return Results.NotFound("Rol no encontrado para el usuario.");
 
-            return Results.Ok(new Response(roleId));
+            return Results.Ok(new Response(roleId.Value));
         }
     }
 }
