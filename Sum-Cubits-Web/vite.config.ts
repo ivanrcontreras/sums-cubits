@@ -21,13 +21,13 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  server: {
-    port: 4001,
-    https: {
-      key: fs.readFileSync('./https/certificate.key'),
-      cert: fs.readFileSync('./https/certificate.pem')
-    }
-  },
+  // server: {
+  //   port: 4001,
+  //   https: {
+  //     key: fs.readFileSync('./https/certificate.key'),
+  //     cert: fs.readFileSync('./https/certificate.pem')
+  //   }
+  // },
   build:{
     outDir: '../Sum-Cubits-Publish/web',
     emptyOutDir: true,
