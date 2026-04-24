@@ -63,6 +63,7 @@ const getMyReservationList = async () => {
 };
 
 const getAvailableTurns = async () => {
+  selectedTurnos.value = [];
   if (!selectedReservation.value || !salonSelectedId.value) return;
 
   const fechaReserva = formatDate(selectedReservation.value);
